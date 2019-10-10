@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Exemplo3_FlatMap {
 	
@@ -26,6 +27,8 @@ public class Exemplo3_FlatMap {
 		System.out.println(autores);
 		
 		System.out.println("\n----------------- JAVA 8 -------------------");
+		
+		System.out.println(livros.stream().flatMap(l -> l.getAutores().stream()).collect(Collectors.toSet()));
 			
 	}
 	

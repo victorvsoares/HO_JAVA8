@@ -29,7 +29,12 @@ public class Exemplo4_AllAny {
 		System.out.println(any);
 
 		System.out.println("\n----------------- JAVA 8 -------------------");
+		
+		System.out.println(numeros.stream().allMatch(n -> n == 3)); 
 
+		System.out.println(numeros.stream().anyMatch(n -> n == 3)); 
+		
+		System.out.println(numeros.parallelStream().count());
 
 	}
 

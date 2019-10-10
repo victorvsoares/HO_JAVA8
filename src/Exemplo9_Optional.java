@@ -1,4 +1,3 @@
-import static java.util.Objects.*;
 import java.util.Optional;
 
 public class Exemplo9_Optional {
@@ -26,16 +25,18 @@ public class Exemplo9_Optional {
 	
 	public static void enviarEmail(Pessoa pessoa) {
 		
-		if (nonNull(pessoa.getEmail())) {
+		if (pessoa.getEmail() != null) {
 			System.out.println("Enviar email para " + pessoa.getNome());
-		} else if (isNull(pessoa.getEmail())) {
+		} else {
 			throw new RuntimeException("Email não cadastrado para " + pessoa.getNome());
 		}
 
 	}
 	
 	public static void enviarEmail2(Pessoa2 pessoa) {
-		
+		String email = pessoa.getEmail().orElseThrow(() -> new RuntimeException("Email não cadastrado para " + pessoa.getNome()));
+
+		System.out.println("Enviar email para " + email);
 	}
 	
 	static class Pessoa {
@@ -84,4 +85,5 @@ public class Exemplo9_Optional {
 			return Optional.ofNullable(email);
 		}
 	}
+	
 }

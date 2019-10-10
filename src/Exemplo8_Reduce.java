@@ -3,6 +3,7 @@ import static java.math.BigDecimal.ZERO;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Exemplo8_Reduce {
 
@@ -24,6 +25,11 @@ public class Exemplo8_Reduce {
 		System.out.println("Valor da folha de pagamento " + valorTotal);
 		
 		System.out.println("\n----------------- JAVA 8 --------------------");
+		
+		
+		System.out.println("Valor da folha de pagamento " + 
+		  funcionarios.stream().map(f -> f.getSalario()).collect(Collectors.toList()).stream()
+		  .reduce(ZERO , BigDecimal::add));
 		
 		
 	}

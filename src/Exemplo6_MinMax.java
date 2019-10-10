@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Exemplo6_MinMax {
@@ -35,12 +36,16 @@ public class Exemplo6_MinMax {
 		System.out.println("O funcionario mais velho é " + funcionarioMaisVelho.getNome());
 		
 		System.out.println("\n----------------- JAVA 8 -------------------");
-				
+		
+		Comparator<Funcionario> comparing = Comparator.comparing(f -> f.getIdade());
+		funcionarios.stream().min(comparing).ifPresent(f -> System.out.println("O funcionario mais novo é " + f.getNome()));
+		funcionarios.stream().max(Comparator.comparing(f -> f.getIdade())).ifPresent(f -> System.out.println("O funcionario mais velho é " + f.getNome()));		
 	}
 	
 	static class Funcionario {
 		
 		private String nome;
+		
 		private int idade;
 		
 		public Funcionario(String nome, int idade) {

@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Exemplo5_GroupBy {
 
@@ -28,7 +29,8 @@ public class Exemplo5_GroupBy {
 		
 		System.out.println("\n----------------- JAVA 8 -------------------");
 		
-
+		System.out.println(pessoas.stream().collect(Collectors.groupingBy(p -> p.getIdade())));
+		
 	}
 
 	static class Pessoa {

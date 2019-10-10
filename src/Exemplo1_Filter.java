@@ -14,6 +14,9 @@ public class Exemplo1_Filter {
 		}
 		
 		System.out.println("\n----------------- JAVA 8 -------------------");
+		
+		numeros.stream().filter(n -> n % 2 == 0).forEach(System.out::print);
+		
 				
 	}
 

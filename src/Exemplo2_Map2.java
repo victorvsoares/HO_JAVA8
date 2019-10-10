@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
 
 public class Exemplo2_Map2 {
 
@@ -20,16 +19,11 @@ public class Exemplo2_Map2 {
 		
 		System.out.println("\n----------------- JAVA 8 -------------------");
 		
-		pessoas.stream().map(extracted()).forEach(System.out::println);
+		pessoas.stream().map(p -> p.getNome() + " " + p.getIdade()).forEach(System.out::println);
 		
 		
 	}
 
-	private static Function<? super Pessoa, ? extends String> extracted() {
-		Function<? super Pessoa, ? extends String> mapper = p -> p.getNome() + " " + p.getIdade();
-		return mapper;
-	}
-	
 	static class Pessoa {
 		
 		private String nome;
